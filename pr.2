@@ -1,0 +1,216 @@
+# 1. Mean using NumPy
+
+import numpy as np
+
+data = [168,170,150,160,182,140,175,191,152,150]
+
+print(data)
+
+mean = np.mean(data)
+
+print(mean)
+
+
+# 2. Mean using 2D Array
+
+import numpy as np
+
+a = np.array([[1, 2], [3, 4]])
+
+print(a)
+
+np.mean(a)
+
+
+# 3. Random Numbers and Mean
+
+import numpy as np
+
+arr = np.random.randint(10,10000,size=50)
+
+print(arr)
+
+mean = np.mean(arr)
+
+mean
+
+
+# 4. Median for Even Count of Samples
+
+import numpy as np
+
+data = [168,170,150,160,182,140,175,191,152,150]
+
+data.sort()
+
+print(data)
+
+median = np.median(data)
+
+print(median)
+
+
+# 5. Median for Odd Count of Samples
+
+import numpy as np
+
+data = [168,170,150,160,182,140,175,191,152]
+
+data.sort()
+
+print(data)
+
+median = np.median(data)
+
+print(median)
+
+
+# 6. Mode
+
+import numpy as np
+import statistics as stats
+
+data = [168,170,150,160,182,140,175,191,152,150]
+
+stats.mode(data)
+
+
+# 7. Mean and Variance
+
+import numpy as np
+
+data = [168,170,150,160,182,140,175,191,152,150]
+
+mean = np.mean(data)
+
+print(mean)
+
+variance = np.var(data)
+
+print(variance)
+
+
+# 8. Standard Deviation
+
+import numpy as np
+
+data = [168,170,150,160,182,140,175,191,152,150]
+
+print(data)
+
+standard_deviation = np.std(data)
+
+print(standard_deviation)
+
+
+# 9. Correlation Coefficient
+
+import numpy as np
+
+orbital_period = np.array([88, 225, 365, 460, 687, 1200,
+2223, 3831, 5854, 8756, 10015, 20687, 30765, 40190])
+
+dist_from_sun = np.array([58, 108, 250, 328, 486, 978,
+1287, 1890, 2060, 2396, 3400, 3845, 4500, 4800])
+
+print(orbital_period, dist_from_sun)
+
+correlation_coeff = np.corrcoef(orbital_period, dist_from_sun)
+
+print(correlation_coeff)
+
+
+# 10. Correlation Plot
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+orbital_period = np.array([88, 225, 365, 460, 687, 1200,
+2223, 3831, 5854, 8756, 10015, 20687, 30765, 40190])
+
+dist_from_sun = np.array([58, 108, 250, 328, 486, 978,
+1287, 1890, 2060, 2396, 3400, 3845, 4500, 4800])
+
+plt.scatter(orbital_period, dist_from_sun)
+
+plt.title("Correlation Plot")
+
+plt.xlabel("Orbital Period")
+
+plt.ylabel("Distance from Sun")
+
+plt.show()
+
+
+# 11. Normal Distribution Function
+
+import numpy as np
+
+def normal_dist(x, mean, sd):
+
+    prob_density = (1/(np.sqrt(2*np.pi)*sd)) * np.exp(-0.5*((x-mean)/sd)**2)
+
+    return prob_density
+
+mean = 0
+sd = 1
+x = 1
+
+result = normal_dist(x, mean, sd)
+
+print(result)
+
+
+# 12. Normal Distribution Curve
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+import statistics
+
+# Plot between -10 and 10 with .001 steps
+
+x_axis = np.arange(-10, 10, 0.01)
+
+# Calculating mean and standard deviation
+
+mean = statistics.mean(x_axis)
+
+sd = statistics.stdev(x_axis)
+
+plt.plot(x_axis, norm.pdf(x_axis, mean, sd))
+
+plt.show()
+
+
+# 13. Normal Distribution Histogram
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Mean of the distribution
+
+Mean = 100
+
+# Standard deviation of the distribution
+
+Standard_deviation = 5
+
+# Size
+
+size = 100000
+
+# Creating a normal distribution data
+
+values = np.random.normal(Mean, Standard_deviation, size)
+
+# Plotting histogram
+
+plt.hist(values, 100)
+
+# Plotting mean line
+
+plt.axvline(values.mean(), color='k',
+            linestyle='dashed', linewidth=2)
+
+plt.show()
