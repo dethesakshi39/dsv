@@ -1,0 +1,85 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Read CSV File
+df = pd.read_csv("D:\\csv\\csv files.csv")
+print(df)
+
+# 2. Drop Columns
+df = df.drop(columns=['Name', 'Roll no', 'Age'])
+print(df)
+
+# 3. Drop Rows
+df = df.drop(df.index[10:])
+print(df)
+
+# 4. Line Plot
+df.plot(kind='line', color=['red', 'blue', 'brown', 'green'])
+plt.title('Student Informations')
+plt.xlabel('Observations')
+plt.ylabel('Values')
+plt.show()
+
+# 5. Line Plot with Marker
+df.plot(kind='line', color=['red', 'blue', 'brown', 'green'],
+        marker='*', markersize=10, linewidth=3, linestyle='--')
+plt.title('Student Information')
+plt.xlabel('Observations')
+plt.ylabel('Values')
+plt.show()
+
+# 6. Bar Plot
+df.plot(kind='bar', title='Student Informations')
+plt.xlabel('Observations')
+plt.ylabel('Values')
+plt.show()
+
+# 7. Bar Plot with Different Colors
+df.plot(kind='bar', color=['red', 'yellow', 'purple', 'pink'],
+        edgecolor='Green', linewidth=2, linestyle='--')
+plt.title('Student Information')
+plt.xlabel('Observations')
+plt.ylabel('Values')
+plt.show()
+
+# 8. Scatter Plot (Marks vs Contact)
+x = df['Marks']
+y = df['Contact']
+plt.scatter(x, y)
+plt.title('Student Information')
+plt.xlabel('Marks')
+plt.ylabel('Contact')
+plt.show()
+
+# 9. Scatter Plot (Contact vs Address)
+x = df['Contact']
+y = df['Address']
+plt.scatter(x, y, color='red', linewidth=2,
+            marker='*', edgecolor='red')
+plt.title('Student Information')
+plt.xlabel('Contact')
+plt.ylabel('Address')
+plt.show()
+
+# 10. Histogram
+df.plot(kind='hist', title='Student Information')
+plt.show()
+
+# 11. Histogram with Edge Color
+df.plot(kind='hist', edgecolor='blue', linewidth=2,
+        linestyle=':', fill=False, hatch='o')
+plt.show()
+
+# 12. Pie Chart
+df.plot(kind='pie', y='Contact',
+        title='Student Information',
+        legend=False, autopct='%2.2f%%')
+plt.show()
+
+# 13. Box Plot
+df.plot(kind='box')
+plt.title('Student Information')
+plt.xlabel('Index')
+plt.ylabel('Values')
+plt.show()
